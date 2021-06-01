@@ -4,12 +4,22 @@ namespace WHATSAPP\SDK\Edges;
 use WHATSAPP\SDK\API;
 use WHATSAPP\SDK\APIEdge;
 use WHATSAPP\SDK\APIRequest;
+use WHATSAPP\SDK\Edges\Stickerpacks\Sticker;
+use WHATSAPP\SDK\Edges\Stickerpacks\StickerpackID;
 
 class Stickerpacks extends APIEdge{
 
     public const ENDPOINT = '/v1/stickerpacks';
 
-    public function retrieve(?string $namespace){
+    public function StickerpackID(): StickerpackID{
+        return new StickerpackID($this->getAPI(),$this->getEndpoint().StickerpackID::ENDPOINT);
+    }
+
+    public function Sticker(): Sticker{
+        return new Sticker($this->getAPI(),$this->getEndpoint().Sticker::ENDPOINT);
+    }
+
+    public function retrieve(?string $namespace=null){
         $request = new APIRequest(API::METHOD_GET,$this->getEndpoint().(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);

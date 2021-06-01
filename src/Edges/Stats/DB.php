@@ -1,13 +1,13 @@
 <?php
-namespace WHATSAPP\SDK\Edges;
+namespace WHATSAPP\SDK\Edges\Stats;
 
 use WHATSAPP\SDK\API;
 use WHATSAPP\SDK\APIEdge;
 use WHATSAPP\SDK\APIRequest;
 
-class Metrics extends APIEdge{
+class DB extends APIEdge{
 
-    public const ENDPOINT = '/v1/metrics';
+    public const ENDPOINT = '/db';
 
     public function retrieve(?string $format=null){
         $authorization = '';

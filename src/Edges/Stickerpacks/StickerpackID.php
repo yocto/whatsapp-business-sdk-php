@@ -9,7 +9,7 @@ class StickerpackID extends APIEdge{
 
     public const ENDPOINT = '/{stickerpack-id}';
 
-    public function retrieve(string $stickerpack_id,?string $namespace){
+    public function retrieve(string $stickerpack_id,?string $namespace=null){
         $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);

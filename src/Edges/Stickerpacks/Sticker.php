@@ -12,14 +12,14 @@ class Sticker extends APIEdge{
      */
     public const ENDPOINT = '/{stickerpack-id}/stickers';
 
-    public function retrieve(string $stickerpack_id,?string $namespace){
+    public function retrieve(string $stickerpack_id,?string $namespace=null){
         $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
     }
 
-    public function retrieveByIndex(string $stickerpack_id,string $sticker_index,?string $namespace){
+    public function retrieveByIndex(string $stickerpack_id,string $sticker_index,?string $namespace=null){
         $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).'/'.$sticker_index.(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);

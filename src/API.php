@@ -23,10 +23,25 @@ class API extends APIEdge{
     public const METHOD_POST = 'POST';
     public const METHOD_PUT = 'PUT';
 
+    private $apiKey;
     private $token;
 
     public function __construct(string $endpoint){
         parent::__construct($this,$endpoint);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAPIKey(): ?string{
+        return $this->apiKey;
+    }
+
+    /**
+     * @param string $apiKey
+     */
+    public function setAPIKey(string $apiKey): void{
+        $this->apiKey = $apiKey;
     }
 
     /**
