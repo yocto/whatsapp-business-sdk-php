@@ -7,4 +7,6 @@ class Settings extends APIEdge{
 
     public const ENDPOINT = '/v1/settings';
 
+    //TODO
+
 }

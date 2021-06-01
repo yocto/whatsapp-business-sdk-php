@@ -7,7 +7,7 @@ use WHATSAPP\SDK\APIRequest;
 
 class DB extends APIEdge{
 
-    public const ENDPOINT = '/db';
+    public const ENDPOINT = '/v1/stats/db';
 
     public function retrieve(?string $format=null){
         $authorization = '';

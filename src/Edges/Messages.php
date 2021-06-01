@@ -7,4 +7,6 @@ class Messages extends APIEdge{
 
     public const ENDPOINT = '/v1/messages';
 
+    //TODO
+
 }

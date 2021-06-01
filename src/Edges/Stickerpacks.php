@@ -12,11 +12,11 @@ class Stickerpacks extends APIEdge{
     public const ENDPOINT = '/v1/stickerpacks';
 
     public function StickerpackID(): StickerpackID{
-        return new StickerpackID($this->getAPI(),$this->getEndpoint().StickerpackID::ENDPOINT);
+        return new StickerpackID($this->getAPI(),$this->getAPI()->getEndpoint().StickerpackID::ENDPOINT);
     }
 
     public function Sticker(): Sticker{
-        return new Sticker($this->getAPI(),$this->getEndpoint().Sticker::ENDPOINT);
+        return new Sticker($this->getAPI(),$this->getAPI()->getEndpoint().Sticker::ENDPOINT);
     }
 
     public function retrieve(?string $namespace=null){

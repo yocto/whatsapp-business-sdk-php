@@ -7,7 +7,7 @@ use WHATSAPP\SDK\APIRequest;
 
 class Logout extends APIEdge{
 
-    public const ENDPOINT = '/logout';
+    public const ENDPOINT = '/v1/users/logout';
 
     public function logoutCreate(){
         $request = new APIRequest(API::METHOD_POST,$this->getEndpoint(),[

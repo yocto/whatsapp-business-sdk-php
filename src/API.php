@@ -59,55 +59,55 @@ class API extends APIEdge{
     }
 
     public function Account(): Account{
-        return new Account($this->getAPI(),$this->getEndpoint().Account::ENDPOINT);
+        return new Account($this->getAPI(),$this->getAPI()->getEndpoint().Account::ENDPOINT);
     }
 
     public function Certificates(): Certificates{
-        return new Certificates($this->getAPI(),$this->getEndpoint().Certificates::ENDPOINT);
+        return new Certificates($this->getAPI(),$this->getAPI()->getEndpoint().Certificates::ENDPOINT);
     }
 
     public function Contacts(): Contacts{
-        return new Contacts($this->getAPI(),$this->getEndpoint().Contacts::ENDPOINT);
+        return new Contacts($this->getAPI(),$this->getAPI()->getEndpoint().Contacts::ENDPOINT);
     }
 
     public function Health(): Health{
-        return new Health($this->getAPI(),$this->getEndpoint().Health::ENDPOINT);
+        return new Health($this->getAPI(),$this->getAPI()->getEndpoint().Health::ENDPOINT);
     }
 
     public function Media(): Media{
-        return new Media($this->getAPI(),$this->getEndpoint().Media::ENDPOINT);
+        return new Media($this->getAPI(),$this->getAPI()->getEndpoint().Media::ENDPOINT);
     }
 
     public function Messages(): Messages{
-        return new Messages($this->getAPI(),$this->getEndpoint().Messages::ENDPOINT);
+        return new Messages($this->getAPI(),$this->getAPI()->getEndpoint().Messages::ENDPOINT);
     }
 
     public function Metrics(): Metrics{
-        return new Metrics($this->getAPI(),$this->getEndpoint().Metrics::ENDPOINT);
+        return new Metrics($this->getAPI(),$this->getAPI()->getEndpoint().Metrics::ENDPOINT);
     }
 
     public function Services(): Services{
-        return new Services($this->getAPI(),$this->getEndpoint().Services::ENDPOINT);
+        return new Services($this->getAPI(),$this->getAPI()->getEndpoint().Services::ENDPOINT);
     }
 
     public function Settings(): Settings{
-        return new Settings($this->getAPI(),$this->getEndpoint().Settings::ENDPOINT);
+        return new Settings($this->getAPI(),$this->getAPI()->getEndpoint().Settings::ENDPOINT);
     }
 
     public function Stats(): Stats{
-        return new Stats($this->getAPI(),$this->getEndpoint().Stats::ENDPOINT);
+        return new Stats($this->getAPI(),$this->getAPI()->getEndpoint().Stats::ENDPOINT);
     }
 
     public function Stickerpacks(): Stickerpacks{
-        return new Stickerpacks($this->getAPI(),$this->getEndpoint().Stickerpacks::ENDPOINT);
+        return new Stickerpacks($this->getAPI(),$this->getAPI()->getEndpoint().Stickerpacks::ENDPOINT);
     }
 
     public function Support(): Support{
-        return new Support($this->getAPI(),$this->getEndpoint().Support::ENDPOINT);
+        return new Support($this->getAPI(),$this->getAPI()->getEndpoint().Support::ENDPOINT);
     }
 
     public function Users(): Users{
-        return new Users($this->getAPI(),$this->getEndpoint().Users::ENDPOINT);
+        return new Users($this->getAPI(),$this->getAPI()->getEndpoint().Users::ENDPOINT);
     }
 
     public function execute(APIRequest $request): APIResponse{

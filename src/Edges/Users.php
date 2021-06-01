@@ -11,15 +11,15 @@ class Users extends APIEdge{
     public const ENDPOINT = '/v1/users';
 
     public function Login(): Login{
-        return new Login($this->getAPI(),$this->getEndpoint().Login::ENDPOINT);
+        return new Login($this->getAPI(),$this->getAPI()->getEndpoint().Login::ENDPOINT);
     }
 
     public function Logout(): Logout{
-        return new Logout($this->getAPI(),$this->getEndpoint().Logout::ENDPOINT);
+        return new Logout($this->getAPI(),$this->getAPI()->getEndpoint().Logout::ENDPOINT);
     }
 
     public function ManageUsers(): ManageUsers{
-        return new ManageUsers($this->getAPI(),$this->getEndpoint().ManageUsers::ENDPOINT);
+        return new ManageUsers($this->getAPI(),$this->getAPI()->getEndpoint().ManageUsers::ENDPOINT);
     }
 
 }

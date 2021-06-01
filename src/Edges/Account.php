@@ -11,7 +11,7 @@ class Account extends APIEdge{
     public const ENDPOINT = '/v1/account';
 
     public function Verify(): Verify{
-        return new Verify($this->getAPI(),$this->getEndpoint().Verify::ENDPOINT);
+        return new Verify($this->getAPI(),$this->getAPI()->getEndpoint().Verify::ENDPOINT);
     }
 
     public function request(string $cc,string $phone_number,string $method,string $cert,?string $pin=null){

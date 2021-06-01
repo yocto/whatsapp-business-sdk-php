@@ -8,9 +8,9 @@ use WHATSAPP\SDK\APIRequest;
 class Sticker extends APIEdge{
 
     /**
-     * The API reference has '/{stickerpack-id}/sticker' without 's' by accident.
+     * The API reference has '/v1/stickerpacks/{stickerpack-id}/sticker' without 's' by accident.
      */
-    public const ENDPOINT = '/{stickerpack-id}/stickers';
+    public const ENDPOINT = '/v1/stickerpacks/{stickerpack-id}/stickers';
 
     public function retrieve(string $stickerpack_id,?string $namespace=null){
         $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[

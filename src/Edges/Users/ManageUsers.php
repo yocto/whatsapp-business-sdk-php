@@ -7,7 +7,7 @@ use WHATSAPP\SDK\APIRequest;
 
 class ManageUsers extends APIEdge{
 
-    public const ENDPOINT = '/{username}';
+    public const ENDPOINT = '/v1/users/{username}';
 
     public function retrieve(string $username){
         $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{username}',$username),[

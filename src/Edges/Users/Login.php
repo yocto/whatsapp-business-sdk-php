@@ -7,7 +7,7 @@ use WHATSAPP\SDK\APIRequest;
 
 class Login extends APIEdge{
 
-    public const ENDPOINT = '/login';
+    public const ENDPOINT = '/v1/users/login';
 
     public function create(string $username,string $password,?string $new_password=null){
         $json = [];

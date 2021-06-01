@@ -7,7 +7,7 @@ use WHATSAPP\SDK\APIRequest;
 
 class Verify extends APIEdge{
 
-    public const ENDPOINT = '/verify';
+    public const ENDPOINT = '/v1/account/verify';
 
     public function create(string $code){
         $json = [
