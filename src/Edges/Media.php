@@ -5,6 +5,6 @@ use WHATSAPP\SDK\APIEdge;
 
 class Media extends APIEdge{
 
-    public const ENDPOINT = '/media';
+    public const ENDPOINT = '/v1/media';
 
 }

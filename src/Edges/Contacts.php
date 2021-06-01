@@ -5,6 +5,6 @@ use WHATSAPP\SDK\APIEdge;
 
 class Contacts extends APIEdge{
 
-    public const ENDPOINT = '/contacts';
+    public const ENDPOINT = '/v1/contacts';
 
 }

@@ -5,6 +5,6 @@ use WHATSAPP\SDK\APIEdge;
 
 class Certificates extends APIEdge{
 
-    public const ENDPOINT = '/certificates';
+    public const ENDPOINT = '/v1/certificates';
 
 }

@@ -5,6 +5,6 @@ use WHATSAPP\SDK\APIEdge;
 
 class Account extends APIEdge{
 
-    public const ENDPOINT = '/account';
+    public const ENDPOINT = '/v1/account';
 
 }

@@ -17,59 +17,81 @@ use WHATSAPP\SDK\Edges\Users;
 
 class API extends APIEdge{
 
+    public const METHOD_DELETE = 'DELETE';
+    public const METHOD_GET = 'GET';
+    public const METHOD_PATCH = 'PATCH';
+    public const METHOD_POST = 'POST';
+    public const METHOD_PUT = 'PUT';
+
+    private $token;
+
     public function __construct(string $endpoint){
         parent::__construct($this,$endpoint);
     }
 
-    public function Account(){
+    /**
+     * @return string|null
+     */
+    public function getToken(): ?string{
+        return $this->token;
+    }
+
+    /**
+     * @param string $token
+     */
+    public function setToken(string $token): void{
+        $this->token = $token;
+    }
+
+    public function Account(): Account{
         return new Account($this->getAPI(),$this->getEndpoint().Account::ENDPOINT);
     }
 
-    public function Certificates(){
+    public function Certificates(): Certificates{
         return new Certificates($this->getAPI(),$this->getEndpoint().Certificates::ENDPOINT);
     }
 
-    public function Contacts(){
+    public function Contacts(): Contacts{
         return new Contacts($this->getAPI(),$this->getEndpoint().Contacts::ENDPOINT);
     }
 
-    public function Health(){
+    public function Health(): Health{
         return new Health($this->getAPI(),$this->getEndpoint().Health::ENDPOINT);
     }
 
-    public function Media(){
+    public function Media(): Media{
         return new Media($this->getAPI(),$this->getEndpoint().Media::ENDPOINT);
     }
 
-    public function Messages(){
+    public function Messages(): Messages{
         return new Messages($this->getAPI(),$this->getEndpoint().Messages::ENDPOINT);
     }
 
-    public function Metrics(){
+    public function Metrics(): Metrics{
         return new Metrics($this->getAPI(),$this->getEndpoint().Metrics::ENDPOINT);
     }
 
-    public function Services(){
+    public function Services(): Services{
         return new Services($this->getAPI(),$this->getEndpoint().Services::ENDPOINT);
     }
 
-    public function Settings(){
+    public function Settings(): Settings{
         return new Settings($this->getAPI(),$this->getEndpoint().Settings::ENDPOINT);
     }
 
-    public function Stats(){
+    public function Stats(): Stats{
         return new Stats($this->getAPI(),$this->getEndpoint().Stats::ENDPOINT);
     }
 
-    public function Stickerpacks(){
+    public function Stickerpacks(): Stickerpacks{
         return new Stickerpacks($this->getAPI(),$this->getEndpoint().Stickerpacks::ENDPOINT);
     }
 
-    public function Support(){
+    public function Support(): Support{
         return new Support($this->getAPI(),$this->getEndpoint().Support::ENDPOINT);
     }
 
-    public function Users(){
+    public function Users(): Users{
         return new Users($this->getAPI(),$this->getEndpoint().Users::ENDPOINT);
     }
 

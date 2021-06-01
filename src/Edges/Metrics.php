@@ -5,6 +5,6 @@ use WHATSAPP\SDK\APIEdge;
 
 class Metrics extends APIEdge{
 
-    public const ENDPOINT = '/metrics';
+    public const ENDPOINT = '/v1/metrics';
 
 }
