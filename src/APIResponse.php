@@ -26,9 +26,9 @@ class APIResponse{
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getBodyAsJSON(): string{
+    public function getBodyAsJSON(): array{
         return json_decode($this->body,true);
     }
 
