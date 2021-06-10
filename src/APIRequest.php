@@ -8,7 +8,7 @@ class APIRequest{
     private $headers;
     private $body;
 
-    public function __construct(string $method='GET',string $url,array $headers=[],?string $body=null){
+    public function __construct(string $method,string $url,array $headers=[],?string $body=null){
         $this->method = $method;
         $this->url = $url;
         $this->headers = $headers;
