@@ -25,9 +25,12 @@ class Users extends APIEdge{
     }
 
     public function create(string $username,string $password){
-        $json = [];
+        $json = [
+            'username' => $username,
+            'password' => $password,
+        ];
         $request = new APIRequest(API::METHOD_POST,$this->getEndpoint(),[
-            'Authorization: Basic '.base64_encode($username.':'.$password),
+            'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));
         return $this->getAPI()->execute($request);
