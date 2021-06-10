@@ -10,7 +10,7 @@ class Identity extends APIEdge{
     public const ENDPOINT = '/v1/contacts/{users-whatsapp-id}/identity';
 
     public function read(string $users_whatsapp_id){
-        $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{users-whatsapp-id}',$users_whatsapp_id),[
+        $request = new APIRequest(API::METHOD_GET,str_replace('{users-whatsapp-id}',$users_whatsapp_id,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
@@ -20,7 +20,7 @@ class Identity extends APIEdge{
         $json = [
             'hash' => $hash,
         ];
-        $request = new APIRequest(API::METHOD_PUT,str_replace($this->getEndpoint(),'{users-whatsapp-id}',$users_whatsapp_id),[
+        $request = new APIRequest(API::METHOD_PUT,str_replace('{users-whatsapp-id}',$users_whatsapp_id,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));

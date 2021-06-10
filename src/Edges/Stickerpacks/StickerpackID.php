@@ -10,7 +10,7 @@ class StickerpackID extends APIEdge{
     public const ENDPOINT = '/v1/stickerpacks/{stickerpack-id}';
 
     public function retrieve(string $stickerpack_id,?string $namespace=null){
-        $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
+        $request = new APIRequest(API::METHOD_GET,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
@@ -30,7 +30,7 @@ class StickerpackID extends APIEdge{
         if($android_app_store_link){
             $json['android_app_store_link'] = $android_app_store_link;
         }
-        $request = new APIRequest(API::METHOD_PATCH,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id),[
+        $request = new APIRequest(API::METHOD_PATCH,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));
@@ -38,7 +38,7 @@ class StickerpackID extends APIEdge{
     }
 
     public function delete(string $stickerpack_id){
-        $request = new APIRequest(API::METHOD_DELETE,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id),[
+        $request = new APIRequest(API::METHOD_DELETE,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);

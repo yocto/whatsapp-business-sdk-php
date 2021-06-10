@@ -13,14 +13,14 @@ class Sticker extends APIEdge{
     public const ENDPOINT = '/v1/stickerpacks/{stickerpack-id}/stickers';
 
     public function retrieve(string $stickerpack_id,?string $namespace=null){
-        $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
+        $request = new APIRequest(API::METHOD_GET,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()).(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
     }
 
     public function retrieveByIndex(string $stickerpack_id,string $sticker_index,?string $namespace=null){
-        $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).'/'.$sticker_index.(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
+        $request = new APIRequest(API::METHOD_GET,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()).'/'.$sticker_index.(!empty($namespace)?'?'.http_build_query(['namespace'=>$namespace]):''),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
@@ -33,7 +33,7 @@ class Sticker extends APIEdge{
         if($emojis && !empty($emojis)){
             $json['emojis'] = $emojis;
         }
-        $request = new APIRequest(API::METHOD_POST,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id),[
+        $request = new APIRequest(API::METHOD_POST,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));
@@ -48,7 +48,7 @@ class Sticker extends APIEdge{
         if($emojis && !empty($emojis)){
             $json['emojis'] = $emojis;
         }
-        $request = new APIRequest(API::METHOD_PATCH,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).'/'.$sticker_index,[
+        $request = new APIRequest(API::METHOD_PATCH,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()).'/'.$sticker_index,[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));
@@ -56,7 +56,7 @@ class Sticker extends APIEdge{
     }
 
     public function delete(string $stickerpack_id,string $sticker_index){
-        $request = new APIRequest(API::METHOD_DELETE,str_replace($this->getEndpoint(),'{stickerpack-id}',$stickerpack_id).'/'.$sticker_index,[
+        $request = new APIRequest(API::METHOD_DELETE,str_replace('{stickerpack-id}',$stickerpack_id,$this->getEndpoint()).'/'.$sticker_index,[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);

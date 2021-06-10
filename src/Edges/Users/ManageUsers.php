@@ -10,7 +10,7 @@ class ManageUsers extends APIEdge{
     public const ENDPOINT = '/v1/users/{username}';
 
     public function retrieve(string $username){
-        $request = new APIRequest(API::METHOD_GET,str_replace($this->getEndpoint(),'{username}',$username),[
+        $request = new APIRequest(API::METHOD_GET,str_replace('{username}',$username,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
@@ -20,7 +20,7 @@ class ManageUsers extends APIEdge{
         $json = [
             'password' => $password,
         ];
-        $request = new APIRequest(API::METHOD_PUT,str_replace($this->getEndpoint(),'{username}',$username),[
+        $request = new APIRequest(API::METHOD_PUT,str_replace('{username}',$username,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
             'Content-Type: application/json',
         ],json_encode($json,JSON_FORCE_OBJECT));
@@ -28,7 +28,7 @@ class ManageUsers extends APIEdge{
     }
 
     public function delete(string $username){
-        $request = new APIRequest(API::METHOD_DELETE,str_replace($this->getEndpoint(),'{username}',$username),[
+        $request = new APIRequest(API::METHOD_DELETE,str_replace('{username}',$username,$this->getEndpoint()),[
             'Authorization: Bearer '.$this->getAPI()->getToken(),
         ]);
         return $this->getAPI()->execute($request);
